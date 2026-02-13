@@ -7,10 +7,10 @@
 uint outPins[] = {
     /*PICO_DEFAULT_LED_PIN, removed in this project, because the USBTMC code makes good use of it to show USB status
     if you want to use this pin, remove the led_blinking_task() */
-    22, 14, 15};
+    19, 20, 21, 22};
 
 uint inPins[] = {
-    20, 21, 27};
+    10, 11, 12, 13};
 
 void initGpioUtils() {
     return; // nothing needed

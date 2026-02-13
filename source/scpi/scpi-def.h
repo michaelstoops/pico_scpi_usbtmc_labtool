@@ -5,9 +5,9 @@
 
 
 // manufacturer
-#define SCPI_IDN1 "PICO-PI"
+#define SCPI_IDN1 "PICO"
 // model
-#define SCPI_IDN2 "LABTOOL"
+#define SCPI_IDN2 "PST"
 // serial number
 // pico unique id
 // version
