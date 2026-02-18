@@ -3,14 +3,16 @@
 
 #include "gpio_utils.h"
 
-// supported pins
+// Supported pins. These configs are macros so that alternates can be specified at build time
 uint outPins[] = {
     /*PICO_DEFAULT_LED_PIN, removed in this project, because the USBTMC code makes good use of it to show USB status
     if you want to use this pin, remove the led_blinking_task() */
-    22, 14, 15};
+    GPIO_OUTPUTS
+};
 
 uint inPins[] = {
-    20, 21, 27};
+    GPIO_INPUTS
+};
 
 void initGpioUtils() {
     return; // nothing needed

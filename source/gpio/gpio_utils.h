@@ -10,6 +10,17 @@
 #define INSTRUMENT_DIGI_INP_COMMANDS \
     {.pattern = "DIGItal:INPut#?", .callback = SCPI_DigitalInputQ,},
 
+
+// GPIO output IDs, in order of their SCPI OUTP#
+#ifndef GPIO_OUTPUTS
+#define GPIO_OUTPUTS 22, 14, 15
+#endif // GPIO_OUTPUTS
+
+// GPIO input IDs, in order of their SCPI INP#
+#ifndef GPIO_INPUTS
+#define GPIO_INPUTS 20, 21, 27
+#endif // GPIO_INPUTS
+
 void initGpioUtils();
 
 uint32_t outPinCount();

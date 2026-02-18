@@ -1,3 +1,17 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.2.0)
+set(toolchainVersion 14_2_Rel1)
+set(picotoolVersion 2.2.0-a4)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 cmake_minimum_required(VERSION 3.17)
 
 set(CMAKE_C_STANDARD 11)
@@ -105,6 +119,12 @@ pico_add_extra_outputs(${CMAKE_PROJECT_NAME})
 
 # enable use of scpi_user_config.h, to support custom device specific registers 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE SCPI_USER_CONFIG=1)
+
+# If you want different GPIO pins, enter their GP IDs here as a comma-separated list.
+# The list is in their SCPI ID order: the first is OUTP0 or INP0, etc.
+# Defaults are specified in source/gpio/gpio_utils.h.
+#target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE "GPIO_OUTPUTS=19, 20, 21, 22")
+#target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE "GPIO_INPUTS=10, 11, 12, 13")
 
 # usb output, uart output
  pico_enable_stdio_usb(${CMAKE_PROJECT_NAME} 0)
